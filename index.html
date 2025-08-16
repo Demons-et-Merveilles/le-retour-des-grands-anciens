@@ -20,8 +20,8 @@
 	<img id="logo" src="./images/demPNG.png">
 
 	<div class="menudroite">
-		<div class="menu-button"> Notre Histoire </div>
-		<div class="menu-button"> Contact </div>
+		<div class="menu-button" onclick="loadRealPage('histoire');"> Notre Histoire </div>
+		<div class="menu-button" onclick="loadRealPage('contact');"> Contact </div>
 	</div>
 </div>
 
@@ -85,11 +85,11 @@
       const minutes = Math.floor(seconds / 60);
       seconds %= 60;
 
-      return `${jours} JOUR${jours > 1 ? 'S' : ''} ` +
-             `${heures < 10 ? '0' +heures:heures} HEURE${heures > 1 ? 'S' : ''} ` +
-             `${minutes < 10 ? '0' +minutes:minutes} MINUTE${minutes > 1 ? 'S' : ''} ` + 
+      return `${jours} JOUR${jours > 1 ? 'S' : ''} \n` +
+             `${heures < 10 ? '0' +heures:heures} HEURE${heures > 1 ? 'S' : ''} \n` +
+             `${minutes < 10 ? '0' +minutes:minutes} MINUTE${minutes > 1 ? 'S' : ''} \n` + 
 
-             `${seconds < 10 ? '0' +seconds:seconds} SECONDE${seconds > 1 ? 'S' : ''}`;
+             `${seconds < 10 ? '0' +seconds:seconds} SECONDE${seconds > 1 ? 'S' : ''} `;
     }
 
     function updateCountdown() {
@@ -103,7 +103,7 @@
       if (timeLeft > 0) {
         countdownElement.textContent = formatTime(timeLeft);
       } else {
-        countdownElement.textContent = "Temps écoulé !";
+        countdownElement.textContent = "C'est maintenant !";
         clearInterval(timer);
       }
     }

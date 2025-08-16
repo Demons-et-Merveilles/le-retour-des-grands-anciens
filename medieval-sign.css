@@ -1,0 +1,48 @@
+/*******************************/
+/*          Sign			 */
+/*******************************/
+
+.medieval-sign {
+	background: 
+	radial-gradient(circle at 20% 30%, rgba(139, 69, 19, 0.4) 1px, transparent 1px),
+	radial-gradient(circle at 70% 80%, rgba(101, 67, 33, 0.3) 1px, transparent 1px),
+	radial-gradient(circle at 40% 60%, rgba(160, 82, 45, 0.2) 1px, transparent 1px),
+	linear-gradient(135deg, #d4a574 0%, #b8956a 50%, #a67c52 100%);
+	background-size: 15px 15px, 25px 25px, 35px 35px, 100% 100%;
+	border: 8px solid #654321;
+	border-radius: 15px;
+	padding: 40px;
+	text-align: center;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.medieval-sign::before {
+	content: '';
+	position: absolute;
+	top: -15px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 60px;
+	height: 20px;
+	background: #654321;
+	border-radius: 10px 10px 0 0;
+}
+
+.medieval-sign {
+	position: relative;
+}
+
+div.medieval-sign > h1 {
+	font-size: 2.5rem;
+	color: #2c1810;
+	margin: 0 0 20px 0;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+div.medieval-sign > p {
+	font-size: 1.2rem;
+	color: #3d2817;
+	line-height: 1.6;
+	margin: 0;
+	margin-top: 10px;
+}
