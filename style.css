@@ -233,6 +233,7 @@ div.card{
 	color: white;
 	position: relative;
 	margin-top: 5vh;
+
 }
 
 
@@ -252,6 +253,7 @@ div.cardDouble{
 	position: relative;
 
 	margin-top: 5vh;
+
 }
 
 
@@ -277,6 +279,7 @@ div.card-image-container{
 }
 
 img.card-image{
+	max-width: 100vh;
 	max-height: 25vh;
 	width: auto;
 	display: block;
