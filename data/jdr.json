@@ -96,6 +96,24 @@
     "mastering": "Sébastien",
     "image": "images/jdr/miles-christi.jpg",
     "type": "jdr",
+    "format": "simple"
+  },
+  {
+    "id" : 12,
+    "title": "Harry Potter",
+    "description":"Tout va de travers au Chemin de Traverse Acheter sa première baguette, choisir un chaudron étincelant, se disputer pour la plus belle plume… La journée s’annonçait parfaite ! Mais au Chemin de Traverse, la magie a parfois ses caprices",
+    "mastering": "Eric",
+    "image": "images/jdr/harrypotter.png",
+    "type": "jdr",
+     "format": "simple"
+  },
+  {
+    "id" : 13,
+    "title": "Couronnement",
+    "description": "Couronnement est un jeu d'enquête et d'espionnage dans une uchronie des années 60 dans des Etats-Unis en pleine ambiance paranoïaque de la guerre froide. Depuis la fin de la seconde guerre mondiale, des mages ont commencé à naitre et des horreurs amalgamesques à apparaitre là où était manifesté de leur magie. Vous incarnez une escouade paramilitaire de mage-espion, responsable de la traque de n'importe quel mage renégat, amalgame égaré, ou terrible communiste.",
+    "mastering": "Tim",
+    "image": "images/jdr/couronnement.png",
+    "type": "jdr",
     "format": "double"
   }
 ]
