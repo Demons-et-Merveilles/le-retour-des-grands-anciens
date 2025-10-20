@@ -40,7 +40,33 @@
 	background-attachment: fixed;  /* L'image reste fixe en scrollant */
 }
 
+.button {
+	background-color: #000000CC; /* fond noir avec transparence */
+	color: white;
+	border: 2px solid white;
+	border-radius: 10px;
+	padding: 10px 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 1em;
+	transition: background-color 0.3s, box-shadow 0.3s;
+	cursor: pointer;
+}
 
+.select {
+	background-color: #000000CC; /* fond noir avec transparence */
+	color: white;
+	border: 2px solid white;
+	border-radius: 10px;
+	padding: 10px 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 1em;
+	transition: background-color 0.3s, box-shadow 0.3s;
+	cursor: pointer;
+}
 /*********************************/
 /*             Menu              */
 /*********************************/
@@ -275,7 +301,7 @@ div.card-image-container{
 	align-items: center;
 	text-align: center;
 	margin: 10px;
-
+	overflow : hidden;
 }
 
 img.card-image{
@@ -283,6 +309,7 @@ img.card-image{
 	max-height: 25vh;
 	width: auto;
 	display: block;
+	object-fit: cover;
 }
 
 div.card-content{
@@ -401,6 +428,45 @@ div.contact{
 	div.contact .logo-contact{
 		width: 20vw;
 	}
+}
+
+
+/*************************************/
+/*             print                */
+/*************************************/
+
+.onlyprinted {
+	display: none;
+}
+
+@media print {
+	.notprinted {
+		display: none !important;
+	}
+
+	.onlyprinted {
+		display: block !important;
+	}
+
+	html, body {
+		margin: 0;
+		padding: 0;
+		height: 100%;
+	}
+
+	body {
+		background:  linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./images/bg6.png") ;
+		background-size: auto 100%; /* ajuste à la hauteur de la page */
+		background-position: center top;
+		-webkit-print-color-adjust: exact;
+		print-color-adjust: exact;
+	}
+}
+
+
+@page {
+	size: A4 portrait; /* ou landscape pour paysage */
+	margin: 0;      /* marges personnalisées */
 }
 
 

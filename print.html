@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="./style.css" rel="stylesheet"/>
+    <title> Démons et Merveilles</title>
+</head>
+
+<body class="bgmed">
+
+<div class="menu">
+    <img id="logo" src="./images/demPNG.png">
+    <br/>
+</div>
+<div class="menu">
+    Démons & Merveilles
+</div>
+
+<div id="page-content">
+    <div class="card-container notprinted">
+        <!-- Les cartes seront générées ici -->
+        <div class="cardDouble invite notprinted">
+            <div class="card-content">
+                <span class="card-title">
+                    <label for="selectToPrint" > Selectionnez votre JDR </label>
+                </span>
+                <span class="card-mastering"  style="margin-top:20px;">
+                <select id="selectToPrint" style="width:60vw" class="select">
+                    <option selected value="-1"> - - - </option>
+                </select>
+                </span>
+                <span class="card-mastering" style="margin-top:20px;">
+                    <button onclick="window.print()" class="button">🖨️ Imprimer</button>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="card-container" id="cardToPrint">
+        <!-- Les cartes seront générées ici -->
+    </div>
+</div>
+</body>
+<footer>
+    <script>
+        /*************************************/
+        /*      Chargement des JDRS 	     */
+        /*************************************/
+
+        const select = document.querySelector("select");
+        select.addEventListener("change", (event) => {
+            const selectedId = event.target.value;
+            if (selectedId !== "-1") {
+                generateCard(selectedId);
+            } else {
+                const container = document.querySelector("#cardToPrint");
+                container.innerHTML = "<p>Aucune carte sélectionnée.</p>";
+            }
+        });
+
+        let cardsData = [];
+        window.onload = () => {
+            fetch("data/jdr.json")
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Erreur lors du chargement du JSON (${response.status})`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    cardsData = data;
+                    console.log("Cartes chargées");
+
+                    data.forEach((card) => {
+                        if(card.type === "jdr") {
+                            let option = document.createElement("option");
+                            option.value = card.id;
+                            option.text = card.title + " ("+card.mastering+")";
+                            select.appendChild(option);
+                        }
+                    });
+                })
+                .catch(error => {
+                    console.error("Impossible de charger les cartes :", error);
+                });
+        };
+
+
+
+        // Template HTML de base
+        const cardTemplate = `
+<div class="card%cardsize% %cardtype%">
+    <div class="card-image-container">
+        <img class="card-image" src="%urlimage%">
+    </div>
+
+    <hr class="card-hr"/>
+    <div class="card-content">
+        <span class="card-title">%title%</span>
+        <span class="card-description">%description%</span>
+        <span class="card-mastering">
+        <h3> %mastering% </h3>
+      </span>
+    </div>
+</div>
+`;
+
+
+        function generateCard(cardId) {
+            const container = document.querySelector("#cardToPrint");
+            if (!container) {
+                console.error("Élément #cardToPrint introuvable dans le DOM !");
+                return;
+            }
+            const card = cardsData.find(c => c.id === parseInt(cardId));
+            if (!card) {
+                console.error(`Carte avec l'ID ${cardId} introuvable dans les données.`);
+                return;
+            }
+
+            container.innerHTML = cardTemplate
+                        .replace("%cardsize%", "")
+                        .replace("%cardtype%", card.type)
+                        .replace("%urlimage%", card.image)
+                        .replace("%title%", card.title)
+                        .replace("%description%", card.description)
+                        .replace("%mastering%", card.type === "jdr" ? "Masterisé par " + card.mastering : card.mastering);
+
+            document.title = card.title;
+        }
+    </script>
+</footer>
+</html>

@@ -1,39 +1,38 @@
-
 <!DOCTYPE html>
 <html>
 
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="./style.css" />
-	<title> Démons et Merveilles</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="./style.css" rel="stylesheet"/>
+    <title> Démons et Merveilles</title>
 </head>
 
 <body class="bgmed">
 
 <div class="menu">
-	<div class="menugauche">
-		<div class="menu-button" onclick="loadRealPage('countdown');"> Grands anciens </div>
-		<div class="menu-button" onclick="loadRealPage('jdrs');"> Actualités </div>	
-	</div>
+    <div class="menugauche">
+        <div class="menu-button" onclick="loadRealPage('countdown');"> Grands anciens</div>
+        <div class="menu-button" onclick="loadRealPage('jdrs');"> Actualités</div>
+    </div>
 
-	<img id="logo" src="./images/demPNG.png">
+    <img id="logo" src="./images/demPNG.png">
 
-	<div class="menudroite">
-		<div class="menu-button" onclick="loadRealPage('histoire');"> Notre Histoire </div>
-		<div class="menu-button" onclick="loadRealPage('contact');"> Contact </div>
-	</div>
+    <div class="menudroite">
+        <div class="menu-button" onclick="loadRealPage('histoire');"> Notre Histoire</div>
+        <div class="menu-button" onclick="loadRealPage('contact');"> Contact</div>
+    </div>
 </div>
 
 <div id="page-content">
 </div>
 </body>
 <footer>
-	<script>
+    <script>
 
-      async function loadRealPage(pageName) {
+        async function loadRealPage(pageName) {
             const contentContainer = document.getElementById('page-content');
-            
+
             try {
                 // Afficher le loader
                 contentContainer.innerHTML = `
@@ -45,15 +44,16 @@
 
                 // Charger la page depuis le serveur
                 const response = await fetch(`./pages/${pageName}.html`);
-                
+
                 if (!response.ok) {
                     throw new Error(`Erreur ${response.status}: ${response.statusText}`);
                 }
-                
+
                 const content = await response.text();
                 contentContainer.innerHTML = `${content}`;
-
-                
+                if (pageName === "jdrs") {
+                    generateCards(cardsData);
+                }
             } catch (error) {
                 contentContainer.innerHTML = `
                     <div class="error">
@@ -63,53 +63,111 @@
             }
         }
 
-        window.onload = function(){
-        	loadRealPage("countdown"); //starting page
-        	updateCountdown();
+        window.onload = function () {
+            loadRealPage("countdown"); //starting page
+            updateCountdown();
         }
 
 
+        // Date future vers laquelle on compte (exemple : 25 décembre 2025, 18h00)
+        const targetDate = new Date('2025-11-15T14:00:00');
 
 
-    // Date future vers laquelle on compte (exemple : 25 décembre 2025, 18h00)
-    const targetDate = new Date('2025-11-15T14:00:00');
+        function formatTime(seconds) {
+            const jours = Math.floor(seconds / (24 * 3600));
+            seconds %= (24 * 3600);
 
-    
-    function formatTime(seconds) {
-      const jours = Math.floor(seconds / (24 * 3600));
-      seconds %= (24 * 3600);
+            const heures = Math.floor(seconds / 3600);
+            seconds %= 3600;
 
-      const heures = Math.floor(seconds / 3600);
-      seconds %= 3600;
+            const minutes = Math.floor(seconds / 60);
+            seconds %= 60;
 
-      const minutes = Math.floor(seconds / 60);
-      seconds %= 60;
+            return `${jours} JOUR${jours > 1 ? 'S' : ''} \n` +
+                `${heures < 10 ? '0' + heures : heures} HEURE${heures > 1 ? 'S' : ''} \n` +
+                `${minutes < 10 ? '0' + minutes : minutes} MINUTE${minutes > 1 ? 'S' : ''} \n` +
 
-      return `${jours} JOUR${jours > 1 ? 'S' : ''} \n` +
-             `${heures < 10 ? '0' +heures:heures} HEURE${heures > 1 ? 'S' : ''} \n` +
-             `${minutes < 10 ? '0' +minutes:minutes} MINUTE${minutes > 1 ? 'S' : ''} \n` + 
+                `${seconds < 10 ? '0' + seconds : seconds} SECONDE${seconds > 1 ? 'S' : ''} `;
+        }
 
-             `${seconds < 10 ? '0' +seconds:seconds} SECONDE${seconds > 1 ? 'S' : ''} `;
-    }
+        function updateCountdown() {
+            countdownElement = document.getElementById('countdown');
+            if (countdownElement == null)
+                return;
 
-    function updateCountdown() {
-    	countdownElement = document.getElementById('countdown');
-    	if(countdownElement == null)
-    		return;
+            const now = new Date();
+            let timeLeft = Math.floor((targetDate - now) / 1000);
 
-      const now = new Date();
-      let timeLeft = Math.floor((targetDate - now) / 1000);
-
-      if (timeLeft > 0) {
-        countdownElement.textContent = formatTime(timeLeft);
-      } else {
-        countdownElement.textContent = "C'est maintenant !";
-        clearInterval(timer);
-      }
-    }
+            if (timeLeft > 0) {
+                countdownElement.textContent = formatTime(timeLeft);
+            } else {
+                countdownElement.textContent = "C'est maintenant !";
+                clearInterval(timer);
+            }
+        }
 
 
-    const timer = setInterval(updateCountdown, 1000);
-	</script>
+        const timer = setInterval(updateCountdown, 1000);
+
+        /*************************************/
+        /*      Chargement des JDRS 	     */
+        /*************************************/
+
+        let cardsData = [];
+        fetch("data/jdr.json")
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Erreur lors du chargement du JSON (${response.status})`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                cardsData = data;
+                console.log("✅ Cartes chargées :", cardsData);
+            })
+            .catch(error => {
+                console.error("❌ Impossible de charger les cartes :", error);
+            });
+
+
+        // Template HTML de base
+        const cardTemplate = `
+<div class="card%cardsize% %cardtype%">
+    <div class="card-image-container">
+        <img class="card-image" src="%urlimage%">
+    </div>
+
+    <hr class="card-hr"/>
+    <div class="card-content">
+        <span class="card-title">%title%</span>
+        <span class="card-description">%description%</span>
+        <span class="card-mastering">
+        <h3> %mastering% </h3>
+      </span>
+    </div>
+</div>
+`;
+
+        function generateCards(cards) {
+            const container = document.querySelector(".card-container");
+            if (!container) {
+                console.error("❌ Élément .card-container introuvable dans le DOM !");
+                return;
+            }
+
+            console.log("🃏 Génération des cartes...");
+            container.innerHTML = cards
+                .map(card => {
+                    return cardTemplate
+                        .replace("%cardsize%", card.format === "double" ? "Double" : "")
+                        .replace("%cardtype%", card.type)
+                        .replace("%urlimage%", card.image)
+                        .replace("%title%", card.title)
+                        .replace("%description%", card.description)
+                        .replace("%mastering%", card.type === "jdr" ? "Masterisé par "+card.mastering: card.mastering);
+                })
+                .join("");
+        }
+    </script>
 </footer>
 </html>
