@@ -140,7 +140,7 @@
     <hr class="card-hr"/>
     <div class="card-content">
         <span class="card-title">%title%</span>
-        <span class="card-description">%description%</span>
+        <span class="card-description">%description% <a href="%link%"> %link% </a> </span>
         <span class="card-mastering">
         <h3> %mastering% </h3>
       </span>
@@ -160,11 +160,12 @@
                 .map(card => {
                     return cardTemplate
                         .replace("%cardsize%", card.format === "double" ? "Double" : "")
-                        .replace("%cardtype%", card.type)
-                        .replace("%urlimage%", card.image)
-                        .replace("%title%", card.title)
-                        .replace("%description%", card.description)
-                        .replace("%mastering%", card.type === "jdr" ? "Masterisé par "+card.mastering: card.mastering);
+                        .replace("%cardtype%", card.type??"")
+                        .replace("%urlimage%", card.image??"")
+                        .replace("%title%", card.title??"")
+                        .replace("%description%", card.description??"")
+                        .replace("%mastering%", card.type === "jdr" ? "Masterisé par "+card.mastering: card.mastering)
+                        .replaceAll("%link",card.link??"");
                 })
                 .join("");
         }

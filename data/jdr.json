@@ -48,7 +48,8 @@
     "id" : 6,
     "title": "Le Truc’K à Crêpes",
     "description": "🏰✨ Braves aventuriers, l’heure est venue d’entamer la plus délicieuse des quêtes ! Deux sœurs ont uni leurs forces pour créer Le Truc’K à Crêpes, une auberge roulante bleue azur où les galettes croustillantes et les crêpes sucrées sont des trésors à savourer. 🥞💫 ⚔️ Guerriers de la faim, mages du sucré, chevaliers du salé… approchez et régalez-vous ! 🎉 Et pour vos grandes fêtes, invoquez notre chariot magique pour un festin digne d’un roi.",
-    "mastering": "https://www.facebook.com/letruckacrepes/",
+    "mastering": "Retrouvez-nous sur :",
+    "link": "https://www.facebook.com/letruckacrepes/",
     "image": "images/jdr/tac.png",
     "type": "invite",
     "format": "double"
@@ -74,8 +75,9 @@
     {
     "id" : 9,
     "title": "ANTRE MONDE ÉDITIONS",
-    "description": "Antre Monde est une maison d’édition de jeux et plus précisément de jeux de rôle. Nous avons deux objectifs : <br/> Offrir des jeux de création française, originaux, accessibles, alliant qualités esthétiques et jouabilité. <br/> Proposer des histoires complètes, des fictions dans lesquelles chaque joueur peut trouver sa place et vivre de grandes aventures. <br/> Présenter des traductions de jeux étrangers de qualité. Gammes de jeux de rôle à notre actif : <br/>Knight <br/>Hong Kong – Les Chroniques de l’Étrange <br/>The Heist <br/>Célestopol 1922 : Le jeu de rôle <br/>Gammes à venir : <br/>Star Trek <br/>Parias <br/>Empire <br/>One More Quest",
-    "mastering": "https://antre-monde.com/",
+    "description": "Antre Monde est une maison d’édition de jeux et plus précisément de jeux de rôle. <br/>Nous avons deux objectifs : <br/> Offrir des jeux de création française, originaux, accessibles, alliant qualités esthétiques et jouabilité. <br/> Proposer des histoires complètes, des fictions dans lesquelles chaque joueur peut trouver sa place et vivre de grandes aventures. <br/> Présenter des traductions de jeux étrangers de qualité. <br/><br/>Gammes de jeux de rôle à notre actif : <br/>Knight <br/>Hong Kong – Les Chroniques de l’Étrange <br/>The Heist <br/>Célestopol 1922 : Le jeu de rôle <br/><br/>Gammes à venir : <br/>Star Trek <br/>Parias <br/>Empire <br/>One More Quest",
+    "mastering": "Retrouvez-nous sur :",
+    "link" : "https://antre-monde.com/",
     "image": "images/jdr/antremonde.png",
     "type": "invite",
     "format": "double"
@@ -102,7 +104,8 @@
     "id" : 12,
     "title": "Le Décalé Café",
     "description": "",
-    "mastering": "https://www.decale-cafe-le-havre.com/",
+    "mastering": "Retrouvez-nous sur :",
+    "link": "https://www.decale-cafe-le-havre.com/",
     "image": "images/jdr/decale.jpg",
     "type": "invite",
     "format": "double"
