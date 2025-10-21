@@ -21,7 +21,8 @@
     "id" : 3,
     "title": "Paper In Events – Jérôme Tollet",
     "description": "Créateur havrais d’un univers du papier où le papercraft est central. Le papercraft consiste à transformer de simples feuilles en véritables sculptures 3D, grâce à des pliages et collages précis. Cet univers est enrichi par des déclinaisons en papercut (découpes multicouches décoratives) et en lightbox (dioramas lumineux). Inspirées de la fantasy et de la pop culture, ces créations donnent vie à un monde original et spectaculaire. Pour les 30 ans de Démons et Merveilles, Paper In Events présentera une sélection de pièces emblématiques, proposera des mini-démos de collage, et offrira la possibilité de repartir avec de nombreux kits à emporter.",
-    "mastering": "https://paperinevents.com/",
+    "mastering": "",
+    "link": "https://paperinevents.com/",
     "image": "images/jdr/paperinevents.jpg",
     "type": "invite",
     "format": "double"
