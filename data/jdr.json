@@ -131,11 +131,78 @@
   },
   {
     "id" : 15,
+    "title": "Maison Nébuleuse",
+    "description": "Maison Nébuleuse est une association d'auteur·rices réuni·es autour d'une ambition. Celle de diffuser des jeux de rôles fabuleux, des cartes à jouer et à collectionner extraordinaires, des figurines étonnantes et des expériences ludiques singulières ! Quand nous avons le temps, nous produisons nos propres jeux en tirage raisonné. Nous aspirons à des méthodes de production engagées et respectueuses de l'ensemble des membres de la chaîne de production. Nous portons un regard tout particulier sur les choix faits dans le façonnage des objets. Nos propositions ludiques et nos approches esthétiques sont contemporaines et personnelles, venez voir par vous-même ! Seront présents : Valentin et Maxence.",
+    "mastering": "Retrouvez-nous sur :",
+    "link": "https://www.maisonnebuleuse.com/",
+    "image": "images/jdr/maisonnebuleuse.png",
+    "type": "invite",
+    "format": "double"
+  },
+  {
+    "id" : 16,
     "title": "Couronnement",
     "description": "Couronnement est un jeu d'enquête et d'espionnage dans une uchronie des années 60 dans des Etats-Unis en pleine ambiance paranoïaque de la guerre froide. Depuis la fin de la seconde guerre mondiale, des mages ont commencé à naitre et des horreurs amalgamesques à apparaitre là où était manifesté de leur magie. Vous incarnez une escouade paramilitaire de mage-espion, responsable de la traque de n'importe quel mage renégat, amalgame égaré, ou terrible communiste.",
     "mastering": "Tim",
     "image": "images/jdr/couronnement.png",
     "type": "jdr",
+    "format": "simple"
+  },
+  {
+    "id" : 17,
+    "title": "Neuro Itineris",
+    "description": "Neuro Itineris est un jeu de rôle amateur, non publié à ce jour, né un beau jour de septembre 1993, de la plume et de l’imagination de Sébastien Metterie et Vincent Monville. Il est joué en campagne pendant plusieurs années et présenté au public lors des CJDRA (convention de jeu de role amateur) n°2, 3 4 et 5 au début des années 2000. C'est avec un immense plaisir qu'il sera joué à nouveau en convention cette année.",
+    "mastering": "Seb",
+    "image": "images/jdr/neuroitineris.png",
+    "type": "jdr",
+    "format": "simple"
+  },
+    {
+    "id" : 18,
+    "title": "Paradice Goblin",
+    "description": "Paradice Goblin, c’est avant tout une collection de plus de 2000 dés, mélangeant sets de dés de jeux de rôles, dés artisanaux, dés publicitaires ou encore dés de jeux de plateau.Cette collection prends également la forme d’une exposition itinérante voyageant à travers différents événements ludiques !",
+    "mastering": "Retrouvez-nous sur :",
+    "link": "https://www.instagram.com/paradice_goblin/",
+    "image": "images/jdr/paradice.jpg",
+    "type": "invite",
+    "format": "double"
+  },
+    {
+    "id" : 19,
+    "title": "La Méthode du Docteur Chestel",
+    "description": "Plongez dans la tête de votre voisin… et réparez-la ! <br/> Dans ce jeu, vous êtes des soigneurs projetés dans l’Intracos d’un Patient – un monde façonné par ses peurs et ses délires. Si pour lui la Terre est plate, elle l’est. S’il croit que son boulanger est un vampire, gare aux croissants ensanglantés ! <br/>Votre mission ? Le guérir en 'déboguant' son univers mental : prouvez-lui que la Terre est ronde, que son voisin n’est pas un tueur, ou que les chats ne complotent pas contre lui. Pour ça, tout est permis : mise en scène, faux témoignages, illusions et bluffs dignes de Mission Impossible… mais attention, le Patient ignore qu’il est soigné !",
+    "mastering": "Ghis",
+    "image": "images/jdr/docteurchestel.jpg",
+    "type": "jdr",
+    "format": "simple"
+  },
+  {
+    "id" : 20,
+    "title": " Homebrew Dungeons & Dragon",
+    "description": "Eria : Bataille en Dolmérie <br/>Alors que les armées de Jinhwan Sayun I avancent sur les frontières d’Hishinobe, une escouade de soldats reçoit une mission cruciale : convaincre les Orkoni, anciens gardiens vivant dans les montagnes, de se joindre à la défense du royaume.<br/>Mais dans ces terres où l’honneur prime sur la peur, aucune parole n’est sans conséquence.<br/>Parviendrez-vous à sceller une alliance… ou précipiterez-vous Hishinobe dans la guerre ?",
+    "mastering": "Mattéo",
+    "image": "images/jdr/homebredded.png",
+    "type": "jdr",
+    "format": "simple"
+  },
+  {
+    "id" : 21,
+    "title": "Chrysalis",
+    "description": "Chrysalis est un jeu de rôle d'Oniric Fantasy qui se déroule aux confins de l'univers, sur la planète Héos, où une civisilisation d'arts et de magie a subi l'arrivée des hommes des étoiles et leur technologie. L'action se déroule dans un oasis végétal, terre de refuge, où les êtres-plantes cohabitent avec des antéhumains à la recherche de leurs origines.<br/><br/>Chrysalis est tiré du jeu de rôle Shaan Renaissance, dont la première édition date d’il y a près de 30 ans, et qui a connu une réédition en 2015, mais que vous n’avez pas besoin de connaître pour appréhender la nouvelle gamme Shaan World. Ce premier opus utilise un système de jeu à 4D10 pour des parties sans préparation, avec ou sans MJ, jouable en Solo. Il propose un générateur de campagne pour construire la carte qui constituera le cadre de jeu centré sur les personnages et leurs quêtes. Découvrez le site dédié à Chrysalis avec un créateur de personnage, un kit découverte à télécharger, etc.",
+    "mastering": "Rendez-vous sur :",
+    "link": "https://www.shaan-world.com",
+    "image": "images/jdr/chrysalis.jpg",
+    "type": "invite",
+    "format": "double"
+  },
+    {
+    "id" : 22,
+    "title": "Atelier Geek-Art",
+    "description": "L'Atelier Geek-Art propose des objets décoratifs en bois. Ils sont fabriqués par découpe et gravure laser et assemblés à la main.<br/>Pour les Fans de l'univers Geek, mais pas que, le Havre est aussi bien représenté ainsi que l’univers ludique.",
+    "mastering": "Retrouvez-nous sur :",
+    "link": " https://www.facebook.com/AtelierGeekArt/",
+    "image": "images/jdr/geekart.jpg",
+    "type": "invite",
     "format": "double"
   }
 ]
