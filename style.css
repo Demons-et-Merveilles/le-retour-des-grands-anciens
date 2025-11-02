@@ -419,13 +419,13 @@ div.contact{
 
 
 @media (min-width: 769px) {
-	div.contact .logo-contact{
+	.logo-contact{
 		width: 7vw;
 	}
 }
 
 @media (max-width: 768px) {
-	div.contact .logo-contact{
+	.logo-contact{
 		width: 20vw;
 	}
 }
