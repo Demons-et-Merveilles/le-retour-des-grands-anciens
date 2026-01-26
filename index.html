@@ -12,8 +12,8 @@
 
 <div class="menu">
     <div class="menugauche">
-        <div class="menu-button" onclick="loadRealPage('countdown');"> Grands anciens</div>
-        <div class="menu-button" onclick="loadRealPage('jdrs');"> Actualités</div>
+        <div class="menu-button" onclick="loadRealPage('accueil');"> Accueil </div>
+        <div class="menu-button" onclick="loadRealPage('agenda');"> Agenda</div>
     </div>
 
     <img id="logo" src="./images/demPNG.png" alt="Logo Démons et Merveilles">
@@ -24,7 +24,7 @@
     </div>
 </div>
 
-<div id="page-content">
+<div id="page-content" style="height: 100%;">
 </div>
 </body>
 <footer>
@@ -64,7 +64,7 @@
         }
 
         window.onload = function () {
-            loadRealPage("countdown"); //starting page
+            loadRealPage("accueil"); //starting page
             updateCountdown();
         }
 

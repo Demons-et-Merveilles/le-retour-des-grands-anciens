@@ -105,6 +105,7 @@
 .menu .menu-button {
 	color : var(--titre);
 	font-family: "BeaufortBold", sans-serif;
+	cursor: pointer;
 }
 
 .menu .menu-button:hover{
@@ -430,6 +431,23 @@ div.contact{
 	}
 }
 
+/*************************************/
+/*             Agenda                */
+/*************************************/
+
+.div-agenda {
+	background: #000000;
+	border: 2px solid var(--jdr);
+	border-radius: 8px;
+	padding: 10px 20px;
+	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+	position: relative;
+	color: white;
+	height: 100vh;
+	flex-direction: column;
+	height: 60vh;
+	margin-top: 1vh;
+}
 
 /*************************************/
 /*             print                */
