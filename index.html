@@ -14,6 +14,7 @@
     <div class="menugauche">
         <div class="menu-button" onclick="loadRealPage('accueil');"> Accueil </div>
         <div class="menu-button" onclick="loadRealPage('agenda');"> Agenda</div>
+        <div class="menu-button" onclick="loadRealPage('jdrs');"> JDRs Proposés</div>
     </div>
 
     <img id="logo" src="./images/demPNG.png" alt="Logo Démons et Merveilles">
@@ -140,9 +141,12 @@
     <hr class="card-hr"/>
     <div class="card-content">
         <span class="card-title">%title%</span>
-        <span class="card-description">%description%  </span>
+        <span class="card-description">
+            %description%
+        </span>
         <span class="card-mastering"> 
         <h3> %mastering% <a href="%link%" style="color:lightblue"> %link% </a> </h3>
+        <h3> %horaire% </h3>
       </span>
     </div>
 </div>
@@ -164,6 +168,7 @@
                         .replace("%urlimage%", card.image??"")
                         .replace("%title%", card.title??"")
                         .replace("%description%", card.description??"")
+                        .replace("%horaire%", card.horaire??"")
                         .replace("%mastering%", card.type === "jdr" ? "Masterisé par "+card.mastering: card.mastering)
                         .replaceAll("%link%",card.link??"");
                 })
