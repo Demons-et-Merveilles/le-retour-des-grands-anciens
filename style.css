@@ -106,6 +106,7 @@
 	color : var(--titre);
 	font-family: "BeaufortBold", sans-serif;
 	cursor: pointer;
+	text-align: center;
 }
 
 .menu .menu-button:hover{
@@ -320,7 +321,7 @@ div.card-content{
 	justify-content: center;
 	align-items: center;
 	text-align: justify;
-	margin: 10%px;
+	margin: 10%;
 }
 
 span.card-title{
@@ -367,6 +368,14 @@ div.invite hr.card-hr{
 	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
 	position: relative;
 	color: white;
+}
+
+img.pancarte-image{
+	max-width: 200vh;
+	max-height: 50vh;
+	width: auto;
+	display: block;
+	object-fit: cover;
 }
 
 .pancarte::after {
