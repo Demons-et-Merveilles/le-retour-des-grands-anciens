@@ -2,7 +2,7 @@
   {
     "id" : 1,
     "title": "Brain Soda - Le Clandestin",
-    "description": "Au milieu du lac, personne ne vous entendra miauler",
+    "description": "C’est parti pour la croisière la plus folle de tous les temps ! Bière, musique, bière, huile solaire et bière, tout est fin prêt pour un voyage réussi ! Le bateau de John de Wall Street et son équipage saura vous accueillir pour votre plus grand plaisir !\nIgnorez donc ces ronronnements maléfiques venus de la cale et ces quelques tâches rouges malvenues … Car, après tout, ne sommes-nous pas là pour nous éclater à mort ?!\nBrain Soda est le jeu des films nuls, des nanards caricaturaux. Incarnez un groupe d’ados aussi pertinents qu’une paire de crocs en Alaska et assumez jusqu’à la mort vos clichés. (Attention, possibilité de décès par patounage)",
     "mastering": "François - 16 ans et +",
     "image": "images/jdr/bsleclandestin.png",
     "horaire" : "Samedi 20h - 22h et dimanche 10h30 - 11h30.",
@@ -11,8 +11,8 @@
   },
   {
     "id" : 2,
-    "title": "Brain Soda - Le Clandestin",
-    "description": "",
+    "title": "Brain Soda - Bloody Harvest",
+    "description": "Un autre jour tranquille en Alabama, le soleil brille sur les champs de maïs et la viande grésille sur les barbecues. Mais entre steaks, bières et épis grillés, l’odeur des ennuis commence à se faire sentir. Qui est ce nouveau voisin à l’accent étrange ? Pourquoi le verre de Samantha est-il tout le temps plein ? Et, surtout, le triple pontage de Bill le Shériff  va-t-il exploser au trentième donut ?\nBrain Soda est le jeu des films nuls, des nanards caricaturaux. Incarnez une bande de vrais américains feukyai aussi pertinents qu’une paire de crocs en Alaska et assumez jusqu’à la mort vos clichés. (Attention, possibilité de décès à la saucisse et au marteau)",
     "mastering": "François - 16 ans et +",
     "horaire" : "Samedi 20h - 22h et dimanche 10h30 - 11h30.",
     "image": "images/jdr/bsbloodyharvest.png",
