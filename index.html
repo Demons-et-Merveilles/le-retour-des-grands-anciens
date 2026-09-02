@@ -22,6 +22,7 @@
     <div class="menudroite">
         <div class="menu-button" onclick="loadRealPage('mtg');"> Magic The Gathering</div>
         <div class="menu-button" onclick="loadRealPage('bloodbowl');"> BloodBowl</div>
+        <div class="menu-button" onclick="loadRealPage('concours-peinture');"> Concours de Peinture</div>
     </div>
 </div>
 
@@ -29,84 +30,85 @@
 </div>
 </body>
 <footer>
+    <!-- jQuery servi depuis un CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script>
 
-        async function loadRealPage(pageName) {
-            const contentContainer = document.getElementById('page-content');
+        // Charge une page (fragment HTML) dans le conteneur principal
+        function loadRealPage(pageName) {
+            const $content = $('#page-content');
 
-            try {
-                // Afficher le loader
-                contentContainer.innerHTML = `
-                    <div class="loading">
-                        <div class="spinner"></div>
-                        Chargement de la page...
-                    </div>
-                `;
+            // Affiche le loader pendant le chargement
+            $content.html(`
+                <div class="loading">
+                    <div class="spinner"></div>
+                    Chargement de la page...
+                </div>
+            `);
 
-                // Charger la page depuis le serveur
-                const response = await fetch(`./pages/${pageName}.html`);
+            // Récupère le fragment HTML correspondant à la page demandée
+            $.get(`./pages/${pageName}.html`)
+                .done(function (content) {
+                    $content.html(content);
 
-                if (!response.ok) {
-                    throw new Error(`Erreur ${response.status}: ${response.statusText}`);
-                }
-
-                const content = await response.text();
-                contentContainer.innerHTML = `${content}`;
-                if (pageName === "jdrs") {
-                    generateCards(cardsData);
-                }
-            } catch (error) {
-                contentContainer.innerHTML = `
-                    <div class="error">
-                        ❌ Erreur lors du chargement de la page "${pageName}" : ${error.message}
-                    </div>
-                `;
-            }
+                    // La page des JDRs a besoin des cartes générées dynamiquement
+                    if (pageName === 'jdrs') {
+                        generateCards(cardsData);
+                    }
+                })
+                .fail(function (jqXHR) {
+                    $content.html(`
+                        <div class="error">
+                            ❌ Erreur lors du chargement de la page "${pageName}" : ${jqXHR.status} ${jqXHR.statusText}
+                        </div>
+                    `);
+                });
         }
 
-        window.onload = function () {
-            loadRealPage("accueil"); //starting page
+        $(function () {
+            loadRealPage('accueil'); // page de démarrage
             updateCountdown();
-        }
+        });
 
-
-        // Date future vers laquelle on compte (exemple : 25 décembre 2025, 18h00)
+        // Date cible du compte à rebours (portes ouvertes)
         const targetDate = new Date('2026-05-08T14:00:00');
 
+        // Formate un nombre de secondes en "X JOURS / X HEURES / ..."
+        function formatTime(secondsInput) {
+            let seconds = secondsInput;
 
-        function formatTime(seconds) {
-            const jours = Math.floor(seconds / (24 * 3600));
-            seconds %= (24 * 3600);
+            const days = Math.floor(seconds / (24 * 3600));
+            seconds %= 24 * 3600;
 
-            const heures = Math.floor(seconds / 3600);
+            const hours = Math.floor(seconds / 3600);
             seconds %= 3600;
 
             const minutes = Math.floor(seconds / 60);
             seconds %= 60;
 
-            return `${jours} JOUR${jours > 1 ? 'S' : ''} \n` +
-                `${heures < 10 ? '0' + heures : heures} HEURE${heures > 1 ? 'S' : ''} \n` +
+            return `${days} JOUR${days > 1 ? 'S' : ''} \n` +
+                `${hours < 10 ? '0' + hours : hours} HEURE${hours > 1 ? 'S' : ''} \n` +
                 `${minutes < 10 ? '0' + minutes : minutes} MINUTE${minutes > 1 ? 'S' : ''} \n` +
-
                 `${seconds < 10 ? '0' + seconds : seconds} SECONDE${seconds > 1 ? 'S' : ''} `;
         }
 
+        // Met à jour l'affichage du compte à rebours, s'il est présent sur la page
         function updateCountdown() {
-            countdownElement = document.getElementById('countdown');
-            if (countdownElement == null)
+            const $countdown = $('#countdown');
+            if ($countdown.length === 0) {
                 return;
+            }
 
             const now = new Date();
-            let timeLeft = Math.floor((targetDate - now) / 1000);
+            const timeLeft = Math.floor((targetDate - now) / 1000);
 
             if (timeLeft > 0) {
-                countdownElement.textContent = formatTime(timeLeft);
+                $countdown.text(formatTime(timeLeft));
             } else {
-                countdownElement.textContent = "C'est maintenant !";
+                $countdown.text("C'est maintenant !");
                 clearInterval(timer);
             }
         }
-
 
         const timer = setInterval(updateCountdown, 1000);
 
@@ -115,23 +117,18 @@
         /*************************************/
 
         let cardsData = [];
-        fetch("data/jdr.json")
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`Erreur lors du chargement du JSON (${response.status})`);
-                }
-                return response.json();
-            })
-            .then(data => {
+
+        // Charge la liste des JDRs proposés depuis le fichier JSON
+        $.getJSON('data/jdr.json')
+            .done(function (data) {
                 cardsData = data;
-                console.log("✅ Cartes chargées :", cardsData);
+                console.log('✅ Cartes chargées :', cardsData);
             })
-            .catch(error => {
-                console.error("❌ Impossible de charger les cartes :", error);
+            .fail(function (jqXHR) {
+                console.error('❌ Impossible de charger les cartes :', jqXHR.status, jqXHR.statusText);
             });
 
-
-        // Template HTML de base
+        // Gabarit HTML d'une carte de JDR
         const cardTemplate = `
 <div class="card%cardsize% %cardtype%">
     <div class="card-image-container">
@@ -152,27 +149,29 @@
 </div>
 `;
 
+        // Construit et injecte les cartes de JDR dans le conteneur
         function generateCards(cards) {
-            const container = document.querySelector(".card-container");
-            if (!container) {
-                console.error("❌ Élément .card-container introuvable dans le DOM !");
+            const $container = $('.card-container');
+            if ($container.length === 0) {
+                console.error('❌ Élément .card-container introuvable dans le DOM !');
                 return;
             }
 
-            console.log("🃏 Génération des cartes...");
-            container.innerHTML = cards
-                .map(card => {
-                    return cardTemplate
-                        .replace("%cardsize%", card.format === "double" ? "Double" : "")
-                        .replace("%cardtype%", card.type??"")
-                        .replace("%urlimage%", card.image??"")
-                        .replace("%title%", card.title??"")
-                        .replace("%description%", card.description??"")
-                        .replace("%horaire%", card.horaire??"")
-                        .replace("%mastering%", card.type === "jdr" ? "Masterisé par "+card.mastering: card.mastering)
-                        .replaceAll("%link%",card.link??"");
-                })
-                .join("");
+            console.log('🃏 Génération des cartes...');
+
+            const cardsHtml = cards.map(function (card) {
+                return cardTemplate
+                    .replace('%cardsize%', card.format === 'double' ? 'Double' : '')
+                    .replace('%cardtype%', card.type ?? '')
+                    .replace('%urlimage%', card.image ?? '')
+                    .replace('%title%', card.title ?? '')
+                    .replace('%description%', card.description ?? '')
+                    .replace('%horaire%', card.horaire ?? '')
+                    .replace('%mastering%', card.type === 'jdr' ? 'Masterisé par ' + card.mastering : card.mastering)
+                    .replaceAll('%link%', card.link ?? '');
+            }).join('');
+
+            $container.html(cardsHtml);
         }
     </script>
 </footer>

@@ -1,502 +1,478 @@
-/*******************************/
-/*         Variables           */
-/*******************************/
+/* ============================================================
+   DÉMONS & MERVEILLES — feuille de style
+   Thème inspiré de l'affiche "Les Mondes de Démons & Merveilles" :
+   nuit fantastique bleu nuit / indigo, dorure gravée, bannières
+   bordeaux façon "démon", plaques façon parchemin pour le contenu.
+   ============================================================ */
 
+/* ---- Polices (Google Fonts) : une police de titre gravée +
+   une police de corps de texte "vieux grimoire" ---- */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@500;600;700&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
 
-
+/* ---- Jetons de design (couleurs, rayons, ombres) ---- */
 :root {
-	--jdr: #d4af37;
-	--invite: #BB0000;
-	--titre:  #E9D19C;
+    --bg-deep: #0a1024;
+    --bg-mid: #131b34;
+    --bg-mid-2: #1c2748;
+    --gold: #c9a24a;
+    --gold-light: #e8d38f;
+    --gold-dim: #8a6f2f;
+    --maroon: #7a1620;
+    --maroon-dark: #4a0e14;
+    --parchment: #f3e7c9;
+    --parchment-dark: #e2cf9c;
+    --ink: #3a2a18;
+    --ink-soft: #5a4527;
+    --teal-glow: #4a70f3;
+    --shadow-deep: 0 10px 30px rgba(0, 0, 0, 0.55);
+    --radius-plaque: 10px;
 }
 
-
-@font-face {
-	font-family: 'EnchantedLand';
-	src: url('./font/EnchantedLand/EnchantedLand.otf') format('opentype');
-	font-weight: normal;
-	font-style: normal;
+* {
+    box-sizing: border-box;
 }
 
-
-@font-face {
-	font-family: 'BeaufortBold';
-	src: url('./font/Beaufort/BeaufortBold.ttf') format('truetype');
-	font-weight: normal;
-	font-style: normal;
+html, body {
+    height: 100%;
+    margin: 0;
 }
 
-
-/********************************/
-/*            Style             */
-/********************************/
-
-
-.bgmed{
-	background-image:     linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./images/bg6.png") ;
-	background-repeat: no-repeat;
-	background-size: cover;        /* L'image couvre toute la zone */
-	background-position: center;   /* Centrée horizontalement et verticalement */
-	background-attachment: fixed;  /* L'image reste fixe en scrollant */
+body.bgmed {
+    /* Ciel nocturne dégradé, façon veillée devant un château lointain */
+    background:
+        radial-gradient(ellipse at 20% -10%, rgba(122, 22, 32, 0.35), transparent 45%),
+        radial-gradient(ellipse at 85% 0%, rgba(111, 214, 230, 0.12), transparent 40%),
+        linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-mid) 45%, var(--bg-mid-2) 100%);
+    background-attachment: fixed;
+    color: var(--parchment);
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.6;
+    min-height: 100vh;
 }
 
-.button {
-	background-color: #000000CC; /* fond noir avec transparence */
-	color: white;
-	border: 2px solid white;
-	border-radius: 10px;
-	padding: 10px 20px;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 1em;
-	transition: background-color 0.3s, box-shadow 0.3s;
-	cursor: pointer;
-}
+/* ============================================================
+   MENU PRINCIPAL — bannière gravée façon fronton de château
+   ============================================================ */
 
-.select {
-	background-color: #000000CC; /* fond noir avec transparence */
-	color: white;
-	border: 2px solid white;
-	border-radius: 10px;
-	padding: 10px 20px;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 1em;
-	transition: background-color 0.3s, box-shadow 0.3s;
-	cursor: pointer;
-}
-/*********************************/
-/*             Menu              */
-/*********************************/
-
-.menu{
-	width: 90%;
-	margin: 0vh 5vw;
-	color: #E9D19C;
-	display: flex;
-	justify-content: center; /* Centrage horizontal */
-	align-items: center;     /* Centrage vertical */
-	
-}
-
-
-
-@media (min-width: 769px) {
-	.menu #logo{
-		height: 200px;
-		display: block;
-		left: 0;
-	}
-}
-@media (max-width: 768px) {
-	.menu #logo{
-		height: 100px;
-		display: block;
-		left: 0;
-	}
-}
-
-
-
-
-
-.menu .menu-button {
-	color : var(--titre);
-	font-family: "BeaufortBold", sans-serif;
-	cursor: pointer;
-	text-align: center;
-}
-
-.menu .menu-button:hover{
-	background: #AAAAAA55;
-	box-shadow: 0 0 10px 10px #AAAAAA55;
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.6rem 1.5rem;
+    background: linear-gradient(180deg, #10182f 0%, #0a1024 100%);
+    border-bottom: 3px solid var(--gold);
+    box-shadow: var(--shadow-deep);
+    flex-wrap: wrap;
 }
 
 .menugauche, .menudroite {
-	display: flex;
-	align-items: center;     /* Centrage vertical */
-	width: 45vw;
-	gap: 50px; /* Espacement entre les boutons */
+    display: flex;
+    gap: 0.5rem;
+    flex: 1;
+    flex-wrap: wrap;
 }
 
-
-
-@media (min-width: 769px) {
-	.menu{
-		flex-direction: row;
-	}
-
-	.menugauche{
-		justify-content: right; /* Centrage horizontal */
-	}
-
-	.menudroite{
-		justify-content: left; /* Centrage horizontal */
-	}
-
-	.menu .menu-button{
-		font-size: 2em;
-		padding : 10px;
-	}
+.menudroite {
+    justify-content: flex-end;
 }
 
-@media (max-width: 768px) {
-	.menu{
-		flex-direction: column;
-	}
-
-	.menugauche{
-		justify-content: center; /* Centrage horizontal */
-	}
-
-	.menudroite{
-		justify-content: center; /* Centrage horizontal */
-	}
-
-	.menu .menu-button{
-		font-size: 1.5em;
-	}
+#logo {
+    height: 72px;
+    filter: drop-shadow(0 0 10px rgba(201, 162, 74, 0.55));
 }
 
-
-
-.div-centre{
-	display: flex;
-	font-family: "BeaufortBold", sans-serif;
-	justify-content: center;
-	align-items: center;
-	text-align: justify;
-	font-size: 1.25em;
-	margin: 5vh 10vw;
-	border-radius: 10px;
-	color: var(--jdr);
-}	
-
-
-
-
-h1.title{
-	padding: 5vh 2vw;
-	width: 50vw;
-	text-align: center;
-	color: var(--titre);
+.menu-button {
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    color: var(--gold-light);
+    padding: 0.55rem 1rem;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    white-space: nowrap;
 }
 
-#countdown {
-	margin : 0 auto;
-	display: flex;
-	justify-content: center; /* Centrage horizontal */
-	align-items: center;     /* Centrage vertical */
-	font-size: 1.3em;
-	aspect-ratio: 225/100; /* ajustez selon le ratio de votre image */
-	width: 50vw;
-}
-body{
-	background: #282424;
-	overflow-x: hidden;
+.menu-button:hover {
+    color: var(--bg-deep);
+    background: var(--gold);
+    border-color: var(--gold-light);
 }
 
-@media (min-width: 769px) {
-	.div-centre{
-		flex-direction: row;
-	}
-}
-@media (max-width: 768px) {
-	.div-centre{
-		flex-direction: column;
-	}
+/* ============================================================
+   TITRES ET TEXTES COURANTS
+   ============================================================ */
 
-	#countdown{
-		white-space: pre-line;
-	}
+h1, h2, h3, .titre, .title {
+    font-family: 'Cinzel', serif;
+    color: var(--gold-light);
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+    margin-top: 0;
 }
 
-
-
-
-/********************************/
-/*            Cards             */
-/********************************/
-
-div.card-container{
-	display: grid;
-	gap: 10px; /* espace entre les cases */
-	justify-items: center; /* centre horizontalement */
-	align-items: center;   /* centre verticalement */
-	margin-top: 5vh;
+h3 {
+    color: var(--shadow-deep) !important;
+}
+.title {
+    font-size: 1.9rem;
+    text-align: center;
+    line-height: 1.4;
 }
 
-
-
-@media (min-width: 769px) {
-	div.card{
-		grid-column: span 1 ;
-		width: 35vw ;
-	}
+.titre {
+    font-size: 1.4rem;
+    border-bottom: 2px solid var(--gold-dim);
+    padding-bottom: 0.4rem;
+    margin-bottom: 0.8rem;
 }
 
-@media (max-width: 768px) {
-	div.card{
-		grid-column: span 2 ;
-		width: 70vw ;
-	}
+a {
+    color: var(--teal-glow);
+    cursor: pointer;
 }
 
-
-div.card{
-	border-radius: 25px;
-	aspect-ratio: 150/100;
-
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-	padding: 20px;
-
-	background: #000000CC; /* fond noir */
-	padding: 20px;
-	color: white;
-	position: relative;
-	margin-top: 5vh;
-
+a:hover {
+    color: var(--shadow-deep);
 }
 
+/* ============================================================
+   BLOCS DE CONTENU — "plaques" façon parchemin, comme les
+   pancartes en bois/or de l'affiche
+   ============================================================ */
 
-div.cardDouble{
-	grid-column: span 2; /* occupe 2 colonnes */
-	border-radius: 25px;
-	padding: 5vh 0vw;
-	width: 80vw ;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-
-	background: #000000CC; /* fond noir */
-	color: white;
-	position: relative;
-
-	margin-top: 5vh;
-
-}
-
-
-div.invite{
-	box-shadow: 0 0 20px var(--invite);
-	border: 4px solid var(--invite); /* contour doré */
-}
-
-div.jdr{
-	box-shadow: 0 0 20px var(--jdr);
-	border: 4px solid var(--jdr); /* contour doré */
-}
-
-
-
-div.card-image-container{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-	margin: 10px;
-	overflow : hidden;
-}
-
-img.card-image{
-	max-width: 100vh;
-	max-height: 25vh;
-	width: auto;
-	display: block;
-	object-fit: cover;
-}
-
-div.card-content{
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	text-align: justify;
-	margin: 10%;
-}
-
-span.card-title{
-	font-size: 3em;
-	font-family: "BeaufortBold", sans-serif;
-	text-align: center;
-}
-
-span.card-description
-{	
-	font-size: 1.2em;
-	margin-top : 5%;
-	width: 80%;
-}
-
-span.card-mastering{
-	font-family: "BeaufortBold", sans-serif;
-	text-align: center;
-}
-
-
-hr.card-hr{
-	border-radius: 50px; 
-	width:90%
-}
-
-div.jdr hr.card-hr{
-	border: solid var(--jdr) 2px;
-
-}
-
-div.invite hr.card-hr{
-	border: solid var(--invite) 2px;
-}
-/*************************************/
-/*            Pancarte               */
-/*************************************/
-
-.pancarte {
-	background: #000000;
-	border: 2px solid var(--jdr);
-	border-radius: 8px;
-	padding: 40px 50px;
-	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
-	position: relative;
-	color: white;
-}
-
-img.pancarte-image{
-	max-width: 200vh;
-	max-height: 50vh;
-	width: auto;
-	display: block;
-	object-fit: cover;
-}
-
-.pancarte::after {
-	content: '';
-	position: absolute;
-	top: 15px;
-	left: 15px;
-	right: 15px;
-	bottom: 15px;
-	border: 1px solid rgba(212, 175, 55, 0.3);
-	border-radius: 4px;
-	pointer-events: none;
-}
-
-.pancarte .titre {
-	text-align: center; 
-	margin-bottom: 30px;
-	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-	letter-spacing: 1px;
-}
-
-.pancarte .contenu {
-	font-size: 1.1rem;
-	line-height: 1.6;
-	text-align: justify;
-	margin-bottom: 25px;
-}
-
-.pancarte .ligne {
-	width: 80px;
-	height: 1px;
-	background: linear-gradient(90deg, transparent, #cc0000, transparent);
-	margin: 20px auto;
-}
-
-/* Animation subtile */
-@keyframes fadeIn {
-	0% { opacity: 0; transform: translateY(10px); }
-	100% { opacity: 1; transform: translateY(0); }
+.div-centre {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem 1.5rem;
 }
 
 .pancarte {
-	animation: fadeIn 0.8s ease-out;
+    background: linear-gradient(180deg, var(--parchment) 0%, var(--parchment-dark) 100%);
+    color: var(--ink);
+    border: 3px solid var(--gold);
+    border-radius: var(--radius-plaque);
+    box-shadow: var(--shadow-deep), inset 0 0 0 1px rgba(122, 22, 32, 0.25);
+    padding: 1.8rem 2.2rem;
+    margin: 1.5rem auto;
+    max-width: 900px;
 }
 
-
-div.contact{
-	display: flex;
-	flex-direction: row;
+.pancarte .titre, .pancarte h1 {
+    color: var(--maroon);
+    text-shadow: none;
+    border-bottom-color: var(--maroon);
 }
 
-
-
-@media (min-width: 769px) {
-	.logo-contact{
-		width: 7vw;
-	}
+.pancarte-image {
+    max-width: 100%;
+    max-height: 320px;
+    border-radius: 6px;
+    border: 2px solid var(--gold-dim);
+    margin-bottom: 1rem;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
 }
 
-@media (max-width: 768px) {
-	.logo-contact{
-		width: 20vw;
-	}
+.contenu {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    text-align: left;
+    white-space: pre-line;
 }
 
-/*************************************/
-/*             Agenda                */
-/*************************************/
+/* Bannière de convention (affiche promotionnelle) */
+.banniere-convention {
+    display: block;
+    max-width: 100%;
+    margin: 1.5rem auto;
+    border-radius: var(--radius-plaque);
+    border: 3px solid var(--gold);
+    box-shadow: var(--shadow-deep);
+}
+
+/* ============================================================
+   AGENDA
+   ============================================================ */
 
 .div-agenda {
-	background: #000000;
-	border: 2px solid var(--jdr);
-	border-radius: 8px;
-	padding: 10px 20px;
-	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
-	position: relative;
-	color: white;
-	height: 100vh;
-	flex-direction: column;
-	height: 60vh;
-	margin-top: 1vh;
+    padding: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
-/*************************************/
-/*             print                */
-/*************************************/
-
-.onlyprinted {
-	display: none;
+.div-agenda iframe {
+    border: 3px solid var(--gold);
+    border-radius: var(--radius-plaque);
+    box-shadow: var(--shadow-deep);
+    min-height: 600px;
 }
+
+/* ============================================================
+   CONTACT — icônes réseaux façon sceaux dorés
+   ============================================================ */
+
+.contact {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.logo-contact {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    padding: 6px;
+    background: var(--parchment);
+    border: 2px solid var(--gold);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.logo-contact:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 0 16px rgba(201, 162, 74, 0.7);
+}
+
+/* ============================================================
+   COMPTE À REBOURS
+   ============================================================ */
+
+#countdown {
+    font-family: 'Cinzel', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    white-space: pre-line;
+    text-align: center;
+}
+
+/* ============================================================
+   CARTES DE JDR — façon écriteaux de convention
+   ============================================================ */
+
+.card-container {
+    /* Grille à 2 colonnes : une carte simple = 1 colonne, une carte double = les 2 colonnes (pleine largeur) */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card, .cardDouble {
+    background: linear-gradient(180deg, var(--parchment) 0%, var(--parchment-dark) 100%);
+    color: var(--ink);
+    border: 3px solid var(--gold);
+    border-radius: var(--radius-plaque);
+    box-shadow: var(--shadow-deep);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cardDouble {
+    /* Occupe les 2 colonnes de la grille : pleine largeur */
+    grid-column: 1 / -1;
+}
+
+.card:hover, .cardDouble:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 34px rgba(0, 0, 0, 0.6);
+}
+
+.card-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 160px;
+    overflow: hidden;
+    border-radius: 6px;
+}
+
+.card-image {
+    max-width: 100%;
+    max-height: 220px;
+    border-radius: 6px;
+    border: 2px solid var(--gold-dim);
+}
+
+.card-hr {
+    width: 100%;
+    border: none;
+    border-top: 2px solid var(--maroon);
+    margin: 0.8rem 0;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    flex: 1;
+}
+
+.card-title {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--maroon);
+}
+
+.card-description {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 1rem;
+    color: var(--ink-soft);
+    white-space: pre-line;
+}
+
+.card-mastering {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 0.95rem;
+    color: var(--ink);
+    margin-top: auto;
+}
+
+/* Carte d'introduction (type "invite") mise en valeur en bordeaux */
+.invite {
+    background: linear-gradient(180deg, #8a1c27 0%, var(--maroon-dark) 100%);
+    color: var(--parchment);
+    border-color: var(--gold-light);
+}
+
+.invite .card-title {
+    color: var(--gold-light);
+}
+
+.invite .card-description {
+    color: var(--parchment-dark);
+}
+
+/* ============================================================
+   FORMULAIRES / BOUTONS (page d'impression)
+   ============================================================ */
+
+.select, select {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 1rem;
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 2px solid var(--gold-dim);
+    background: var(--parchment);
+    color: var(--ink);
+}
+
+.button, button {
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    background: linear-gradient(180deg, var(--gold-light) 0%, var(--gold) 100%);
+    color: var(--bg-deep);
+    border: 2px solid var(--gold-dim);
+    border-radius: 6px;
+    padding: 0.6rem 1.2rem;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.button:hover, button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(201, 162, 74, 0.5);
+}
+
+/* ============================================================
+   CHARGEMENT / ERREUR
+   ============================================================ */
+
+.loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 3rem;
+    font-family: 'Cinzel', serif;
+    color: var(--gold-light);
+}
+
+.spinner {
+    width: 42px;
+    height: 42px;
+    border: 4px solid rgba(201, 162, 74, 0.25);
+    border-top-color: var(--gold);
+    border-radius: 50%;
+    animation: tourner 0.9s linear infinite;
+}
+
+@keyframes tourner {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.error {
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 1.2rem 1.5rem;
+    background: var(--maroon-dark);
+    color: var(--parchment);
+    border: 2px solid var(--gold);
+    border-radius: var(--radius-plaque);
+    text-align: center;
+}
+
+/* ============================================================
+   IMPRESSION — on repasse en sobre/clair pour économiser l'encre
+   ============================================================ */
 
 @media print {
-	.notprinted {
-		display: none !important;
-	}
+    body.bgmed {
+        background: #fff;
+        color: #000;
+    }
 
-	.onlyprinted {
-		display: block !important;
-	}
+    .notprinted {
+        display: none !important;
+    }
 
-	html, body {
-		margin: 0;
-		padding: 0;
-		height: 100%;
-	}
+    .card, .cardDouble {
+        border: 2px solid #000;
+        box-shadow: none;
+        color: #000;
+        background: #fff;
+    }
 
-	body {
-		background:  linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./images/bg6.png") ;
-		background-size: auto 100%; /* ajuste à la hauteur de la page */
-		background-position: center top;
-		-webkit-print-color-adjust: exact;
-		print-color-adjust: exact;
-	}
+    .card-title, .titre {
+        color: #000;
+        text-shadow: none;
+    }
 }
 
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
 
-@page {
-	size: A4 portrait; /* ou landscape pour paysage */
-	margin: 0;      /* marges personnalisées */
+@media (max-width: 720px) {
+    .menu {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .menugauche, .menudroite {
+        justify-content: center;
+    }
+
+    .card-container {
+        /* Une seule colonne sur mobile : plus de place pour lire chaque fiche */
+        grid-template-columns: 1fr;
+    }
+
+    .pancarte {
+        padding: 1.3rem;
+    }
 }
-
-
-
-

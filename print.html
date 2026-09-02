@@ -24,9 +24,9 @@
         <div class="cardDouble invite notprinted">
             <div class="card-content">
                 <span class="card-title">
-                    <label for="selectToPrint" > Selectionnez votre JDR </label>
+                    <label for="selectToPrint"> Selectionnez votre JDR </label>
                 </span>
-                <span class="card-mastering"  style="margin-top:20px;">
+                <span class="card-mastering" style="margin-top:20px;">
                 <select id="selectToPrint" style="width:60vw" class="select">
                     <option selected value="-1"> - - - </option>
                 </select>
@@ -43,52 +43,48 @@
 </div>
 </body>
 <footer>
+    <!-- jQuery servi depuis un CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script>
         /*************************************/
         /*      Chargement des JDRS 	     */
         /*************************************/
 
-        const select = document.querySelector("select");
-        select.addEventListener("change", (event) => {
-            const selectedId = event.target.value;
-            if (selectedId !== "-1") {
+        let cardsData = [];
+
+        // Quand l'utilisateur choisit un JDR dans la liste déroulante
+        $('#selectToPrint').on('change', function () {
+            const selectedId = $(this).val();
+
+            if (selectedId !== '-1') {
                 generateCard(selectedId);
             } else {
-                const container = document.querySelector("#cardToPrint");
-                container.innerHTML = "<p>Aucune carte sélectionnée.</p>";
+                $('#cardToPrint').html('<p>Aucune carte sélectionnée.</p>');
             }
         });
 
-        let cardsData = [];
-        window.onload = () => {
-            fetch("data/jdr.json")
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`Erreur lors du chargement du JSON (${response.status})`);
-                    }
-                    return response.json();
-                })
-                .then(data => {
+        $(function () {
+            // Charge la liste des JDRs et remplit le menu déroulant
+            $.getJSON('data/jdr.json')
+                .done(function (data) {
                     cardsData = data;
-                    console.log("Cartes chargées");
+                    console.log('Cartes chargées');
 
-                    data.forEach((card) => {
-                        if(card.type === "jdr") {
-                            let option = document.createElement("option");
-                            option.value = card.id;
-                            option.text = card.title + " ("+card.mastering+")";
-                            select.appendChild(option);
+                    data.forEach(function (card) {
+                        if (card.type === 'jdr') {
+                            const $option = $('<option>')
+                                .val(card.id)
+                                .text(card.title + ' (' + card.mastering + ')');
+                            $('#selectToPrint').append($option);
                         }
                     });
                 })
-                .catch(error => {
-                    console.error("Impossible de charger les cartes :", error);
+                .fail(function (jqXHR) {
+                    console.error('Impossible de charger les cartes :', jqXHR.status, jqXHR.statusText);
                 });
-        };
+        });
 
-
-
-        // Template HTML de base
+        // Gabarit HTML d'une carte de JDR (version impression, sans lien)
         const cardTemplate = `
 <div class="card%cardsize% %cardtype%">
     <div class="card-image-container">
@@ -106,27 +102,32 @@
 </div>
 `;
 
-
+        // Construit et affiche la carte imprimable correspondant à l'id choisi
         function generateCard(cardId) {
-            const container = document.querySelector("#cardToPrint");
-            if (!container) {
-                console.error("Élément #cardToPrint introuvable dans le DOM !");
+            const $container = $('#cardToPrint');
+            if ($container.length === 0) {
+                console.error('Élément #cardToPrint introuvable dans le DOM !');
                 return;
             }
-            const card = cardsData.find(c => c.id === parseInt(cardId));
+
+            const card = cardsData.find(function (c) {
+                return c.id === parseInt(cardId, 10);
+            });
+
             if (!card) {
                 console.error(`Carte avec l'ID ${cardId} introuvable dans les données.`);
                 return;
             }
 
-            container.innerHTML = cardTemplate
-                        .replace("%cardsize%", "")
-                        .replace("%cardtype%", card.type)
-                        .replace("%urlimage%", card.image)
-                        .replace("%title%", card.title)
-                        .replace("%description%", card.description)
-                        .replace("%mastering%", card.type === "jdr" ? "Masterisé par " + card.mastering : card.mastering);
+            const cardHtml = cardTemplate
+                .replace('%cardsize%', '')
+                .replace('%cardtype%', card.type)
+                .replace('%urlimage%', card.image)
+                .replace('%title%', card.title)
+                .replace('%description%', card.description)
+                .replace('%mastering%', card.type === 'jdr' ? 'Masterisé par ' + card.mastering : card.mastering);
 
+            $container.html(cardHtml);
             document.title = card.title;
         }
     </script>
