@@ -38,5 +38,33 @@
     "image": "images/jdr/abento.jpg",
     "type": "invite",
     "format": "double"
+  }, {
+    "id" : 5,
+    "title": "Pénombre",
+    "description": "Pénombre est un jeu de rôle de renaissance-fantasy dans lequel les joueurs incarnent des Éminences grises, agents du mystérieux collège du Souffre-jour. Leur mission : parcourir l’Harmonde, un monde baroque pensé comme une immense mélodie, pour comprendre et apaiser les dissonances qui menacent son équilibre. Entre héroïsme, intrigue et merveilleux, chaque aventure invite autant à enquêter et négocier qu’à manier la magie ou l’épée. <br/><br/><b>Le Soleil sous les branches</b> <br/><br/>Depuis trois jours, une petite rue de Lorgol ne connaît plus la nuit. Sous l'immense ombre du Souffre-jour, un soleil d'été éclaire désormais les façades, réchauffe les pavés et attire une foule émerveillée. Mais la lumière grandit. Ceux qui y demeurent ne dorment plus, ne ressentent plus la fatigue… et refusent violemment qu'on leur rende le crépuscule.<br/>Envoyées par le collège du Souffre-jour, les Éminences grises devront découvrir comment sauver ce miracle avant qu'il ne consume tout un quartier.",
+    "mastering": "JF",
+    "horaire" : "",
+    "image": "images/jdr/Penombre1.png",
+    "type": "jdr",
+    "format": "simple"
+  }, {
+    "id" : 6,
+    "title": "Pénombre",
+    "description": "Pénombre est un jeu de rôle de renaissance-fantasy dans lequel les joueurs incarnent des Éminences grises, agents du mystérieux collège du Souffre-jour. Leur mission : parcourir l’Harmonde, un monde baroque pensé comme une immense mélodie, pour comprendre et apaiser les dissonances qui menacent son équilibre. Entre héroïsme, intrigue et merveilleux, chaque aventure invite autant à enquêter et négocier qu’à manier la magie ou l’épée. <br/> <br/> <b>L'Encre du lendemain</b><br/><br/>Ce matin, L'Écume des Mondes annonce l'assassinat d'un échevin de Lorgol. Le problème est simple : l'homme est encore vivant.<br/><br/>À midi, le premier détail de l'article devient pourtant réalité. Puis le deuxième. Les Plumiers jurent n'avoir jamais écrit cette édition et déjà marchands, prévôts et conspirateurs cherchent à s'en emparer.<br/><br/>Les Éminences grises disposent de quelques heures pour découvrir si la gazette prédit l'avenir… ou si l'avenir commence à lui obéir.",
+    "mastering": "JF",
+    "horaire" : "",
+    "image": "images/jdr/Penombre2.png",
+    "type": "jdr",
+    "format": "simple"
+  },
+  {
+    "id" : 7,
+    "title": "Empire",
+    "description": "1815, bataille de Waterloo <br/> Grace a une brume surnaturelle d'origine inconnue, Napoléon et l'Empire sont sauvés.<br/>Depuis cet événement il y a 3 ans, des phénomènes étranges se manifestent un peu partout en France et certaines personnes ont acquis des pouvoirs surnaturels. Vous en êtes, mais devant les risques de réactions violente de peur vous le cachez.<br/>Récemment, pour une raison ou une autre, vous avez eu des problèmes avec la loi et un homme est venu vous sortir de là, Eugène François Vidocq. En échange il veux que vous participiez à sa police secrète, la brigade de sureté, qui enquête, entre autres, sur les atypiques, des gens comme vous, car oui, il connait votre secret.<br/>Scénario du livret de découverte, enquêtez sur le meurtre horrible et étrange de 2 femmes à Paris. ",
+    "mastering": "Tibo - 16 ans et +",
+    "horaire" : "",
+    "image": "images/jdr/Empire.png",
+    "type": "jdr",
+    "format": "simple"
   }
 ]
