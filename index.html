@@ -142,7 +142,7 @@
             %description%
         </span>
         <span class="card-mastering"> 
-        <h3> %mastering% <a href="%link%" style="color:lightblue"> %link% </a> </h3>
+        <h3> %mastering% <a href="%link%" style="color:lightblue"> %desclink% %link% </a> </h3>
         <h3> %horaire% </h3>
       </span>
     </div>
@@ -168,7 +168,8 @@
                     .replace('%description%', card.description ?? '')
                     .replace('%horaire%', card.horaire ?? '')
                     .replace('%mastering%', card.type === 'jdr' ? 'Masterisé par ' + card.mastering : card.mastering)
-                    .replaceAll('%link%', card.link ?? '');
+                    .replaceAll('%link%', card.link ?? '')
+                    .replaceAll('%desclink%', card.desclink ?? '');
             }).join('');
 
             $container.html(cardsHtml);
