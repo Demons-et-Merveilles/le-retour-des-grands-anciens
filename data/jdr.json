@@ -56,14 +56,14 @@
     "image": "images/jdr/Penombre2.png",
     "type": "jdr",
     "format": "simple"
-  },
-  {
+  }, {
     "id" : 7,
-    "title": "Le Décalé Café",
-    "description": "",
-    "mastering": "Retrouvez-nous sur :",
-    "link": "https://www.decale-cafe-le-havre.com/",
-    "image": "images/jdr/decale.jpg",
+    "title": "Koiichi",
+    "description": "Koiichi est une illustratrice et entrepreneuse basée en France, forgée d'un parcours artistique varié.\n\nFormée aussi bien au dessin d'observation classique qu'aux méthodes de l'industrie japonaise du jeu vidéo, elle fait preuve d'une polyvalence rare : elle est capable de s'adapter à tous les styles et de gérer des projets créatifs complexes sur le long terme.\n\nAprès ses études, elle a élargi ses horizons en s'installant au Japon pour y saisir des opportunités professionnelles, avant de rentrer en France en 2024. \nAujourd'hui, elle dirige une activité indépendante florissante, vendant des créations originales et réalisant des commandes pour des clients du monde entier, particuliers comme professionnels.\n\nLorsqu'elle ne crée pas, Koiichi s'investit pleinement dans le monde de l'art. Elle travaille en parallèle dans deux galeries, et enseigne le manga ainsi que les arts plastiques à des adolescents aspirant à devenir artistes. \n\nElle a à cœur de partager son savoir et de bâtir une communauté dynamique grâce à ses réseaux sociaux et son authenticité !",
+    "mastering": "Retrouvez Koiichi sur :",
+    "link": "https://vgen.co/Koiichi",
+    "horaire" : "<a href='https://koiichi.carrd.co/'> https://koiichi.carrd.co/ </a>",
+    "image": "images/jdr/koiichi.png",
     "type": "invite",
     "format": "double"
   },
@@ -89,6 +89,16 @@
   },
   {
     "id" : 10,
+    "title": "Le Décalé Café",
+    "description": "",
+    "mastering": "Retrouvez-nous sur :",
+    "link": "https://www.decale-cafe-le-havre.com/",
+    "image": "images/jdr/decale.jpg",
+    "type": "invite",
+    "format": "double"
+  },
+  {
+    "id" : 11,
     "title": "L'Oeil Noir",
     "description": "Conçu en 1984 comme la réponse européenne à D&D, L'Œil Noir figure parmi les pionniers du jeu de rôle en France.\nSon univers — l'Aventurie — se distingue par une fantasy à échelle humaine, imprégnée d'histoire et de folklore européen, où la géopolitique, les traditions régionales, la magie et la foi envers les Douze Dieux façonnent un monde vivant et cohérent. \n Plus d'infos sur le Grog : <a href='https://www.legrog.org/jeux/-il-noir'> Cliquez ici </a> \n\n <b> Périls sur Havena </b> \nRien ne va plus au port de Havena. Quelqu'un ou quelque chose a offensé Thylos, le dieu des mers, et même son clergé ne parvient pas à l'apaiser. À moins qu'il ne le veuille pas... ",
     "mastering": "Seb - 14 ans et +",
@@ -98,7 +108,7 @@
     "format": "simple"
   },
   {
-    "id" : 11,
+    "id" : 12,
     "title": "Shaan Renaissance",
     "description": "Sur la planète Héos, les peuples autochtones luttent pour panser les plaies laissées par la terrible colonisation des Humains. Entre la symbiose spirituelle du Shaan et la corruption industrielle de la Nécrose, l'ère de la Renaissance est un monde en quête d'équilibre.\n\nLE GOUFFRE DE LA FRAYÈRE\nAu fond d'un lac asséché, l'effondrement d'un barrage a mis à nu l'impossible : une usine abandonnée de l'ancien Ordre humain, construit sur les ruines d'un sanctuaire sacré. Des bulles d'un noir toxique s'en échappent depuis que trois jeunes initiés y ont pénétré. La structure géante grince et menace de s'effondrer, ou pire...\nVotre Mission : Plongez dans les entrailles rouillées de cette carcasse mécanique pour sauver les disparus, affronter la corruption de la Nécrose et empêcher un désastre écologique. Ruse, survie et magie seront vos meilleures armes.",
     "mastering": "Sebastien - 16 ans et +",
@@ -108,7 +118,7 @@
     "format": "simple"
   },
   {
-    "id" : 12,
+    "id" : 13,
     "title": "Rêve de Dragon",
     "description": "L'usage démesuré du Haut-Rêve a tiré les dragons de leur sommeil, provoquant l'effondrement du Second Âge. De ce cataclysme est né le « multi-rêve », un archipel de territoires reliés par d'imprévisibles déchirures du Rêve. De rares cités-états y subsistent au milieu de vastes contrées sauvages, ultimes vestiges d'une grandeur passée. Des siècles plus tard, entre bon sens populaire et superstition, on se méfie toujours des Hauts-Rêvants et de leur magie.\nSur ces terres, les Voyageurs ont fait de la route leur quotidien. Débrouillards et parfois filous, ils ne marchent pas pour arriver quelque part, mais pour le plaisir d'avancer. Chaque étape devient l'occasion d'explorer les ruines d'un Second Âge oublié, de croiser de nouveaux horizons et d'arpenter ce monde avec curiosité.\n\n <b> Périples sur l'Agommagol </b> \nC'est l'effervescence sur les rives de l'Agommagol. Des deux côtés du fleuve, on se harangue, on se houspille, alors que les joutes nautiques annuelles approchent. Ça devrait barder, mais le musicien est introuvable. Est-il seulement arrivé ? Côté Magol, on accuse l'Agom de la disparition de Jauni d'Alibet et réciproquement.",
     "mastering": "Seb - 14 ans et +",
@@ -118,7 +128,7 @@
     "format": "simple"
   },
   {
-    "id" : 13,
+    "id" : 14,
     "title": "Dragobane",
     "description": "Dragonbane est un jeu de rôle médiéval fantastique, plein de magie, de mystères et d'aventures\nIl a été conçu pour une prise en main aisée et pour des parties rapides en mode \"Fast & Furious\".\nIl permet de lancer une aventure en un clin d'oeil sans trop de préparation.\nDragonbane fait la part belle aux rires à la table et offre des défis brutaux aux joueurs. ",
     "mastering": "Sebastien - 11 ans et +",
@@ -128,7 +138,7 @@
     "format": "simple"
   },
   {
-    "id" : 14,
+    "id" : 15,
     "title": "Horrifique",
     "description": "Inspiré par les nouvelles de Howard Philips Lovecraft, Horrifique est un jeu de rôle narratif qui vous plonge directement au cœur d’inquiétants Mystères\nTandis que l’Horloge de l’Horreur se remplit peu à peu , la tension monte et votre histoire progresse vers son abominable conclusion.\nQuel sombre secret se cache derrière ce cas inquiétant ? Quel lien y a-t-il avec les difformités qui affligent les habitants de ce village isolé ? \nImaginez vos propres récits horrifiques et jouez pour voir comment vos personnages vont inexorablement plonger vers la folie, la mort ou peut-être pire encore…",
     "mastering": "Sebastien - 16 ans et +",
@@ -138,7 +148,7 @@
     "format": "simple"
   },
   {
-    "id" : 15,
+
     "title": " Star Wars - le grand art du ship-jacking, un vol Lambda",
     "description": "La base de Hoth a été évacuée dans la douleur, le capitaine Solo est tombé dans les griffes de de Jabba le Hutt, le commandant Skywalker est gravement blessé mais personne ne perd espoir surtout cette bande de jeunes rebelles totalement inconscients. Il ne savent pas encore que c'est impossible mais ils le feront. Scénario qui demande un peu de discrétion, au moins au départ, de la finesse, tout le temps, et de la souplesse à la fin pour ne pas finir vaporiser dans l'espace.",
     "mastering": "Fred - 10 ans et +",
